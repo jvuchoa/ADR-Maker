@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADR Maker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ADR Maker</h1>
+            <p>Transforme suas anotações informais em um Architecture Decision Record profissional.</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="user-input">Descreva o contexto, a decisão e as consequências:</label>
+                <textarea id="user-input" placeholder="Ex: Decidimos migrar o banco para Postgres por causa de problemas de performance com o Mongo nas queries relacionais..."></textarea>
+                <button id="generate-btn">Gerar ADR</button>
+            </div>
+
+            <div id="loading" class="hidden">Gerando ADR com IA... aguarde.</div>
+            <div id="error-message" class="hidden error"></div>
+
+            <div class="output-section hidden" id="output-section">
+                <h2>ADR Gerado (Revisão Necessária)</h2>
+                <div class="alert warning">
+                    <strong>Aviso:</strong> Este documento foi gerado por IA. Uma revisão humana é obrigatória antes de ser salvo no repositório do projeto.
+                </div>
+                <div id="adr-result" class="markdown-body"></div>
+                <button id="copy-btn">Copiar Markdown</button>
+                <textarea id="raw-markdown" class="hidden"></textarea>
+            </div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
